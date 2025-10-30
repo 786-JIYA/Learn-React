@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import React from 'react';
 import Title from './components/Title'; 
 function App() {
   const [showEvents,setShowEvents] = useState(true);
@@ -19,7 +20,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Title/>
+      <Title title="This is for Props today..."/>
       {showEvents && (<div>
         <button onClick={()=> setShowEvents(false)}>Hide Events</button>
       </div>)}
@@ -29,10 +30,10 @@ function App() {
       </div>)}
       
       {showEvents && events.map((event, idx) => (
-          <div key={event.id}>
+          <React.Fragment key={event.id}>
             <h2>{idx}-{event.title}</h2>
             <button onClick={()=> handleClick(event.id)}>Delete me.</button>
-          </div>
+          </React.Fragment>
         ))
       }
     </div>
