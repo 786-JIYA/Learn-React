@@ -7,7 +7,8 @@ function App() {
   const [events, setEvents] = useState([
     { title: "Birthday Party", id: 1 },
     { title: "Conference", id: 2 },
-    { title: "Wedding", id: 3 }
+    { title: "Wedding", id: 3 },
+     { title: "Event", id: 4 }
   ]);
   console.log(showEvents);
 
