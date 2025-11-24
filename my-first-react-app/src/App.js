@@ -4,6 +4,7 @@ import React from 'react';
 import Title from './components/Title'; 
 import Modal from './components/Modal';
 import EventList from './components/EventList';
+import NewEventForm from './components/NewEventForm';
 function App() {
   const [showModal,setShowModal]=useState(false);
   const [showEvents,setShowEvents] = useState(true);
@@ -27,13 +28,13 @@ function App() {
   }
   return (
     <div className="App">
-      {!showModal && 
+
+      {showModal && <Modal handleClose={handleClose} isColour={false}>
+        <NewEventForm/>
+      </Modal>}
+       {!showModal && 
       <button onClick={()=> setShowModal(true)}>Show Modal</button>
       }
-      {showModal && <Modal handleClose={handleClose}>
-        <h2>This is a Modal</h2>
-        <p>We are trying to implement Modal using React</p>
-      </Modal>}
       <Title title="This is for Props today..."/>
       {showEvents && (<div>
         <button onClick={()=> setShowEvents(false)}>Hide Events</button>
