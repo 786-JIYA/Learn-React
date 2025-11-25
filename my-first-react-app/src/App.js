@@ -8,12 +8,15 @@ import NewEventForm from './components/NewEventForm';
 function App() {
   const [showModal,setShowModal]=useState(false);
   const [showEvents,setShowEvents] = useState(true);
-  const [events, setEvents] = useState([
-    { title: "Birthday Party", id: 1 },
-    { title: "Conference", id: 2 },
-    { title: "Wedding", id: 3 },
-     { title: "Event", id: 4 }
-  ]);
+  const [events, setEvents] = useState([]);  
+
+   const addEvent=(event)=>{
+        setEvents((prevEvents)=>{
+            return [...prevEvents,event]
+        })
+        setShowModal(false);
+    }
+
   console.log(showModal );
 
   const handleClick = (id) => {
@@ -23,14 +26,12 @@ function App() {
     })
     });
   }
-  const handleClose=()=>{
-    setShowModal(false);
-  }
+
   return (
     <div className="App">
 
-      {showModal && <Modal handleClose={handleClose} isColour={false}>
-        <NewEventForm/>
+      {showModal && <Modal isColour={false}>
+        <NewEventForm addEvent={addEvent}/>
       </Modal>}
        {!showModal && 
       <button onClick={()=> setShowModal(true)}>Show Modal</button>

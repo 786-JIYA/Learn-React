@@ -9,12 +9,6 @@ function Modal({children,handleClose,isColour}) {
           border:"4px solid",
           borderColor:isColour ? "#555":"#a92626ff"}}>
             {children}
-            <button onClick={handleClose} style={{
-              color:"#fff",
-              backgroundColor:"#555",
-              padding:"6px 7px"
-
-            }}>Close</button>
         </div>
     </div>
   ),document.body)

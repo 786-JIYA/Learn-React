@@ -5,6 +5,7 @@ function EventList({events, handleClick}) {
     events.map((event, idx) => (
               <div className={styles.card} key={event.id}>
                 <h2>{idx}-{event.title}</h2>
+                <p>{event.location}-{event.date}</p>
                 <button onClick={()=> handleClick(event.id)}>Delete me.</button>
               </div>
             ))       
